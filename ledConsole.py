@@ -150,7 +150,7 @@ def FadeIn(strip):
             strip.show()
         
         if bar_6_sel.value == 1:
-            for x in range(101, 144):
+            for x in range(101, 142):
                 red = int(math.floor((i / 256.0) * r))
                 green = int(math.floor((i / 256.0) * g))
                 blue = int(math.floor((i / 256.0) * b))
@@ -158,7 +158,7 @@ def FadeIn(strip):
             strip.show()
 
         if bar_7_sel.value == 1:
-            for x in range(144, 185):
+            for x in range(142, 183):
                 red = int(math.floor((i / 256.0) * r))
                 green = int(math.floor((i / 256.0) * g))
                 blue = int(math.floor((i / 256.0) * b))
@@ -166,7 +166,7 @@ def FadeIn(strip):
             strip.show()
 
         if bar_8_sel.value == 1:
-            for x in range(185, 227):
+            for x in range(183, 224):
                 red = int(math.floor((i / 256.0) * r))
                 green = int(math.floor((i / 256.0) * g))
                 blue = int(math.floor((i / 256.0) * b))
@@ -217,7 +217,7 @@ def FadeOut(strip):
             strip.show()
         
         if bar_6_sel.value == 1:
-            for x in range(101, 144):
+            for x in range(101, 142):
                 red = int(math.floor((i / 256.0) * r))
                 green = int(math.floor((i / 256.0) * g))
                 blue = int(math.floor((i / 256.0) * b))
@@ -225,7 +225,7 @@ def FadeOut(strip):
             strip.show()
 
         if bar_7_sel.value == 1:
-            for x in range(144, 185):
+            for x in range(142, 183):
                 red = int(math.floor((i / 256.0) * r))
                 green = int(math.floor((i / 256.0) * g))
                 blue = int(math.floor((i / 256.0) * b))
@@ -233,7 +233,7 @@ def FadeOut(strip):
             strip.show()
 
         if bar_8_sel.value == 1:
-            for x in range(185, 227):
+            for x in range(183, 224):
                 red = int(math.floor((i / 256.0) * r))
                 green = int(math.floor((i / 256.0) * g))
                 blue = int(math.floor((i / 256.0) * b))
@@ -330,46 +330,46 @@ def flashBar5(strip, color, speed=50):
 
 def flashBar6(strip, color, speed=50):
     # Off
-    for i in range(101, 144):
+    for i in range(101, 142):
         strip.setPixelColor(i, Color(0, 0, 0))
     strip.show()
     #On
-    for i in range(101, 144):
+    for i in range(101, 142):
         strip.setPixelColor(i, color)
     strip.show()
     time.sleep(speed/1000.0)
     #Off
-    for i in range(101, 144):
+    for i in range(101, 142):
         strip.setPixelColor(i, Color(0, 0, 0))
     strip.show()
 
 def flashBar7(strip, color, speed=50):
     # Off
-    for i in range(144, 185):
+    for i in range(142, 183):
         strip.setPixelColor(i, Color(0, 0, 0))
     strip.show()
     #On
-    for i in range(144, 185):
+    for i in range(142, 183):
         strip.setPixelColor(i, color)
     strip.show()
     time.sleep(speed/1000.0)
     #Off
-    for i in range(144, 185):
+    for i in range(142, 183):
         strip.setPixelColor(i, Color(0, 0, 0))
     strip.show()
 
 def flashBar8(strip, color, speed=50):
     # Off
-    for i in range(185, 227):
+    for i in range(183, 224):
         strip.setPixelColor(i, Color(0, 0, 0))
     strip.show()
     #On
-    for i in range(185, 227):
+    for i in range(183, 224):
         strip.setPixelColor(i, color)
     strip.show()
     time.sleep(speed/1000.0)
     #Off
-    for i in range(185, 227):
+    for i in range(183, 224):
         strip.setPixelColor(i, Color(0, 0, 0))
     strip.show()
 
@@ -405,16 +405,16 @@ def flashSmallSquare(strip, color, speed=50):
 def flashBigSquare(strip, color, speed=50):
     """Flash big square"""
     # Off
-    for i in range(60, 227):
+    for i in range(60, 224):
         strip.setPixelColor(i, Color(0, 0, 0))
     strip.show()
     #On
-    for i in range(60, 227):
+    for i in range(60, 224):
         strip.setPixelColor(i, color)
     strip.show()
     time.sleep(speed/1000.0)
     #Off
-    for i in range(60, 227):
+    for i in range(60, 224):
         strip.setPixelColor(i, Color(0, 0, 0))
     strip.show()
 
@@ -480,6 +480,18 @@ def update_color():
         color_text.value = "White is selected"
         color_text.text_color = "white"
 
+def update_red_value(slider_value):
+    global r
+    r = (slider_value/100) * 255
+
+def update_green_value(slider_value):
+    global g
+    g = (slider_value/100) * 255
+
+def update_blue_value(slider_value):
+    global b
+    b = (slider_value/100) * 255
+
 def update_bar_selection():
     for index, value in enumerate(leds):
         if index < 15:
@@ -507,17 +519,17 @@ def update_bar_selection():
                 leds[index] = True
             else:
                 leds[index] = False
-        elif index >= 101 and index < 144:
+        elif index >= 101 and index < 142:
             if bar_6_sel.value == 1:
                 leds[index] = True
             else:
                 leds[index] = False
-        elif index >= 144 and index < 185:
+        elif index >= 142 and index < 183:
             if bar_7_sel.value == 1:
                 leds[index] = True
             else:
                 leds[index] = False
-        elif index >= 185 and index < 227:
+        elif index >= 183 and index < 224:
             if bar_8_sel.value == 1:
                 leds[index] = True
             else:
@@ -603,7 +615,7 @@ def barChase(strip, color):
     
     # Bar 6
     if bar_6_sel.value == 1:
-        for i in range(101, 144):
+        for i in range(101, 142):
             strip.setPixelColor(i, color)
         strip.show()
         time.sleep(float(chase_speed)/1000.0)
@@ -611,7 +623,7 @@ def barChase(strip, color):
     
     # Bar 7
     if bar_7_sel.value == 1:
-        for i in range(144, 185):
+        for i in range(142, 183):
             strip.setPixelColor(i, color)
         strip.show()
         time.sleep(float(chase_speed)/1000.0)
@@ -619,7 +631,7 @@ def barChase(strip, color):
     
     # Bar 8
     if bar_8_sel.value == 1:
-        for i in range(185, 227):
+        for i in range(183, 224):
             strip.setPixelColor(i, color)
         strip.show()
         time.sleep(float(chase_speed)/1000.0)
@@ -679,6 +691,12 @@ if __name__ == '__main__':
         color_text = Text(color_box, grid=[2,1], size=14, align="left")
         fill_text1 = Text(color_box, grid=[1,1], text="       ")
         fill_text = Text(color_box, grid=[1,2], text="       ")
+        red_text = Text(color_box, grid=[1,3], size=14, align="left",text="Red")
+        green_text = Text(color_box, grid=[1,4], size=14, align="left",text="Green")
+        blue_text = Text(color_box, grid=[1,5], size=14, align="left",text="Blue")
+        red_slider = Slider(color_box, grid=[2,3], command=update_red_value)
+        green_slider = Slider(color_box, grid=[2,4], command=update_green_value)
+        blue_slider = Slider(color_box, grid=[2,5], command=update_blue_value)
 
         bar_box = Box(app, layout="grid", width="fill", align="top", border=True)
         bar_title = Text(bar_box, grid=[0, 0], text="Bar Selection", align="left", width="fill")
